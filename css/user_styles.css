@@ -1,0 +1,141 @@
+div,h1,h2,h3,h4,h5,h6,nav,a{
+    font-family: 'century gothic' !important;
+}
+.navbar{
+    background: #FFA500 !important;
+    border-radius: 0px !important;
+    border: 1px solid transparent;
+    opacity: 0.95;
+    transition: all 0.3s ease-in-out;
+}
+.navbar a{
+    color: #fff !important;
+    font-weight: bolder;
+    text-shadow: #000 0px 0px 1px,
+        #FFA500 0px 0px 1px,
+        #FFA500 0px 0px 1px,
+        #FFA500 0px 0px 1px,
+        #FFA500 0px 0px 1px,
+        #FFA500 0px 0px 1px;
+}
+.selected a,selected{
+    color: #111 !important;
+}
+.home-navbar-init-text{
+	color: #FFA500 !important;
+}
+.nav-trans{
+    background: transparent !important;
+}
+.card-div{
+    padding: 10px;
+    border: 1px solid #c0c0c0;
+    box-shadow: 0px 6px 6px #c0c0c0, 0px 7px 7px #c0c0c0;
+    border-radius: 3px;
+    width: 100%;
+    background: #fff;
+}
+.menuBtn, .menuBtn:hover{
+    border: 1px solid transparent !important;
+    background: transparent !important;
+    color: #fff !important;
+}
+/*The side navigation menu*/
+.sidenav {
+    height: 100%; 
+    width: 0;
+    position: fixed; 
+    z-index: 1; 
+    top: 0;
+    left: 0;
+    background-color: #232323;
+    opacity: 0.85;
+    overflow-x: hidden; 
+    padding-top: 60px; 
+    transition: 0.5s; 
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #fff;
+    display: block;
+    transition: 0.3s
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+    color: #FFA500;
+}
+
+.closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px !important;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+/* end of the side navigation menu */
+.parallax-window{
+    padding: 20vh 0 40vh 0;
+    position: relative;
+}
+.intro-text{
+    color: #FFA500;
+    font-weight: bolder;
+}
+.tab-div{
+    background: #fff;
+    opacity: 0.9;
+}
+.search-res-form select,.search-res-form input{
+    width: 100%;
+    height: 30px;
+}
+.search-res-form button{
+    width: 100%;
+}
+.intro-btn{
+    width: 100%;
+    background: transparent;
+    border: 1px solid #FFA500;
+    color: #FFA500;
+  	transition: all 0.2s ease-in;
+}
+.intro-btn:hover,.intro-btn:focus,.intro-btn:active{
+	background: #FFA500;
+	color: #fff;
+	border: 1px solid #FFA500;
+	opacity: 0.97;
+}
+.intro-sm-cont{
+	background-color: #f7f7f7;
+}
+.intro-sm-text-div{
+	padding: 10px;
+    margin: 10px;
+	background: #fff;
+}
+.intro-sm-text-div h1{
+	height: 100px;
+	width: 100px;
+	font-size: 70px;
+	background: #FFA500;
+	color: #fff;
+	border-radius: 50px;
+	margin-left: 33%;
+}
+.user-form input,.user-form select{
+    height: 40px;
+    border: 1px solid #c0c0c0;
+    width: 100%;
+    border-radius: 3px;
+}
+.user-form button{
+    width: 100%;
+}

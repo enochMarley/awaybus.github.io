@@ -1,0 +1,155 @@
+div,h1,h2,h3,h4,h5,h6,nav,a{
+    font-family: 'century gothic' !important;
+}
+.navbar,.admin-menu-option{
+    background: #1995ad !important;
+    border-radius: 0px !important;
+    border: 1px solid transparent;
+}
+.nav-trans{
+    background: transparent !important;
+}
+.nav-pills,.menu-content{
+    height: 78vh;
+}
+.menu-content{
+    height: 83.5vh;
+}
+.navbar a{
+    color: #fff !important;
+}
+.selected a,selected{
+    color: orange !important;
+}
+.input-form input{
+    height: 40px;
+    width: 90%;
+    margin-left: 5%;
+    border: 1px solid #c0c0c0;
+    text-align: center;
+    border-radius: 3px;
+}
+.input-form textarea{
+    height: 100px;
+    width: 90%;
+    margin-left: 5%;
+    border: 1px solid #c0c0c0;
+    text-align: center;
+    border-radius: 3px;
+}
+.input-form button{
+    margin-left: 5%;
+    width: 90%;
+}
+
+.card-div{
+    padding: 10px;
+    border: 1px solid #c0c0c0;
+    box-shadow: 0px 6px 6px #c0c0c0, 0px 7px 7px #c0c0c0;
+    border-radius: 3px;
+    text-align: center;
+    margin-bottom: 5%;
+}
+.add-btn{
+    background: #1995ad;
+}
+.route-form select{
+    width: 40%;
+    height: 40px;
+}
+.schedule-form input{
+    width: 41%;
+}
+.schedule-form select{
+    width: 41%;
+    margin-left: 5%;
+    height: 40px;
+}
+.panel-option-div{
+    background: #1995ad;
+    border: 1px solid #fff;
+    transition: all 0.5s ease-in-out;
+}
+.panel-option-div .opt-text *{
+    color: #fff;
+    font-size: 40px;
+    text-align: center;
+    margin-top: 35px;
+}
+.panel-option-div:hover{
+    background: #fff;
+    border: 1px solid #1995ad;
+}
+.panel-option-div:hover .opt-text *{
+    color: #1995ad;
+}
+/* .menuBtn, .menuBtn:hover{
+    border: 1px solid transparent !important;
+    background: transparent !important;
+    color: #fff !important;
+}
+The side navigation menu
+.sidenav {
+    height: 100%; 
+    width: 0;
+    position: fixed; 
+    z-index: 1; 
+    top: 0;
+    left: 0;
+    background-color: #232323;
+    opacity: 0.85;
+    overflow-x: hidden; 
+    padding-top: 60px; 
+    transition: 0.5s; 
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #fff;
+    display: block;
+    transition: 0.3s
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+    color: #1995ad;
+}
+
+.closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px !important;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+} */
+/* end of the side navigation menu */
+/* .parallax-window{
+    padding: 20vh 0 40vh 0;
+    position: relative;
+}
+.intro-text{
+    color: #fff;
+}
+.tab-div{
+    background: #fff;
+    opacity: 0.9;
+}
+.search-res-form select,.search-res-form input{
+    width: 100%;
+    height: 30px;
+}
+.search-res-form button{
+    width: 100%;
+}
+.intro-btn{
+    width: 100%;
+    background: transparent;
+    border: 1px solid #1995ad;
+    color: #1995ad;
+} */
