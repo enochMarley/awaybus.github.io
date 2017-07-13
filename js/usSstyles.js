@@ -3,11 +3,13 @@ $(".parallax-window").parallax();
 $(".date-input").datepicker({
 	startDate:"0m",
 	todayHighlight:true,
-	format:"dd/mm/yyyy"
+	format:"yyyy-mm-dd"
 });
-$(".time-input").timepicker();
+$(".user-Ddate").datepicker({
+	format:"yyyy-mm-dd",
+});
 var introTexts = ["Bus Reservation Has Never Got Faster And Easier",
-"Reserve Your Bus Ticket At Your Own Comfort","Book Single Or Return Trips","All Transactions Are Secured"]
+"Reserve Your Bus Ticket At Your Own Comfort","Book Single Or Return Trips","All Transactions Are Secured"];
 
 $(".dep-select,.dest-select").on("change", function(){
 	var startDestination  = $(".dep-select").val();
@@ -16,7 +18,7 @@ $(".dep-select,.dest-select").on("change", function(){
 	if(startDestination == endDestination){
 	    alert("Departure And Destination Locations Cannot Be The Same.");
 		$(".dep-select,.dest-select").prop('selectedIndex',0);
-	}	
+	}
 });
 
 $(".one-trip-form").on("submit", function(event){
@@ -36,29 +38,92 @@ $(".one-trip-form").on("submit", function(event){
 		tripDetailsObj.departureDate = departureDate;
 		tripDetailsObj.numberOfAdults = numberOfAdults;
 		tripDetailsObj.numberOfChildren = numberOfChildren;
-		var data = $.param(tripDetailsObj);		
+		var data = $.param(tripDetailsObj);
 		$.ajax({
 			method: 'POST',
 			data: data,
 			url: "includes/server_scripts/users/processOneTripRequest.php",
 			success: function(response){
 				$(".trip-res-div").html(response);
+				window.location.href = "#trip-result-div";
 			},
 			error: function(error){
 				alert(error.toString());
 			}
 		});
 	}
-	
-	//window.location.href = "#trip-result-div";
 });
+
+$(".return-trip-form").on("submit", function(event){
+	event.preventDefault();
+	var departureLocation = $(".ret-dep-select").val();
+	var destinationLocation = $(".ret-dest-select").val();
+	var departureDate = $(".dep-date").val();
+	var depNumberOfAdults = $(".dep-num-of-adults").val();
+	var depNumberOfChildren = $(".dep-num-of-children").val();
+	var returnDate = $(".ret-date").val();
+	var retNumberOfAdults = $(".ret-num-of-adults").val();
+	var retNumberOfChildren = $(".ret-num-of-children").val();
+
+	var tripDetailsObj = {};
+
+	if ((depNumberOfAdults == 0 && depNumberOfChildren == 0) || (retNumberOfAdults == 0 && retNumberOfChildren == 0)) {
+		alert("Either Number Of Children Or Number Of Adults Must Be At Least 1");
+	}else{
+		tripDetailsObj.departureLocation = departureLocation;
+		tripDetailsObj.destinationLocation = destinationLocation;
+		tripDetailsObj.departureDate = departureDate;
+		tripDetailsObj.depNumberOfAdults = depNumberOfAdults;
+		tripDetailsObj.depNumberOfChildren = depNumberOfChildren;
+		tripDetailsObj.returnDate = returnDate;
+		tripDetailsObj.retNumberOfAdults = retNumberOfAdults;
+		tripDetailsObj.retNumberOfChildren = retNumberOfChildren;
+		var data = $.param(tripDetailsObj);
+		$.ajax({
+			method: 'POST',
+			data: data,
+			url: "includes/server_scripts/users/processReturnTripRequest.php",
+			success: function(response){
+				$(".trip-res-div").html(response);
+				window.location.href = "#trip-result-div";
+			},
+			error: function(error){
+				alert(error.toString());
+			}
+		});
+	}
+});
+
+function bookBus(id, numOfdults,numOfChildren){
+	window.location.href = "bookBus.php?id="+id+"&numOfAdults="+numOfdults+"&numOfChildren="+numOfChildren;
+}
+
+function bookReturnBus(id,depNumOfAdults,depNumOfChildren,retNumOfAdults,retNumOfChildren){
+	window.location.href = "bookReturnBus.php?id="+id+"&depNumOfAdults="+depNumOfAdults+"&depNumOfChildren="+depNumOfChildren+
+	"&retNumOfChildren="+retNumOfChildren+"&retNumOfAdults="+retNumOfAdults;
+}
+
+function getRandomSchedules(){
+	$.ajax({
+		method: 'GET',
+		url: "includes/server_scripts/users/getRandomSchedules.php",
+		success: function(response){
+			$(".rand-trip-div").html(response);
+		},
+		error: function(error){
+			alert(error.toString());
+		}
+	});
+}
+
+//getRandomSchedules();
 
 function changeIntroTexts(){
 	var i = 0;
 	$(".intro-text").css("opacity",0)
 	$(".intro-text").html(introTexts[i]).animate({"opacity":1},1000);
 	setInterval(function(){
-		
+
 		$(".intro-text").animate({"opacity":0},1000);
 
 		setTimeout(function(){
@@ -66,7 +131,7 @@ function changeIntroTexts(){
 			$(".intro-text").html(introTexts[i]);
 			$(".intro-text").animate({"opacity":1},1000);
 		},1000);
-		
+
 		if (i == (introTexts.length - 1)) {
 			i = -1;
 		}

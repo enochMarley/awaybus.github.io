@@ -1,0 +1,15 @@
+CREATE DATABASE busreservation;
+
+CREATE TABLE busreservation.admin ( adminId int(11) NOT NULL AUTO_INCREMENT, adminUsername text NOT NULL, adminPassword text NOT NULL, PRIMARY KEY (adminId) );
+
+CREATE TABLE busreservation.buses ( busId int(11) NOT NULL AUTO_INCREMENT, busType text NOT NULL, busNumber text NOT NULL, busNumberOfSeats int(11) NOT NULL, busStatus varchar(10) NOT NULL DEFAULT 'inactive', busFeatures text NOT NULL, PRIMARY KEY (busId) );
+
+CREATE TABLE busreservation.destinations ( destinationId int(11) NOT NULL AUTO_INCREMENT, destinationName text NOT NULL, PRIMARY KEY (destinationId) );
+
+CREATE TABLE busreservation.routes ( routeId int(11) NOT NULL AUTO_INCREMENT, routePath text NOT NULL, PRIMARY KEY (routeId) );
+
+CREATE TABLE busreservation.schedules ( scheduleId int(11) NOT NULL AUTO_INCREMENT, busType text NOT NULL, route text NOT NULL, depDate date NOT NULL, depTime text NOT NULL, arrDate date NOT NULL, arrTime text NOT NULL, pricePerAdult double NOT NULL DEFAULT 0, pricePerChild double NOT NULL DEFAULT 0, numberOfSeats int(11) NOT NULL DEFAULT 0, seatsBooked int(11) NOT NULL DEFAULT 0, scheduleDone varchar(10) NOT NULL DEFAULT 'false', dateAdded timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, PRIMARY KEY (scheduleId) );
+
+create table busreservation.users(userId int not null PRIMARY KEY AUTO_INCREMENT,fullName text not null,username text not null,dateOfBirth date not null,emailAddress text not null,phoneNumber text not null,passcode text not null,dateAdded timestamp not null DEFAULT CURRENT_TIMESTAMP on UPDATE CURRENT_TIMESTAMP);
+
+INSERT INTO busreservation.admin (adminUsername,adminPassword) VALUES("admin","password");

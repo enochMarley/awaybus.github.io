@@ -139,6 +139,7 @@
 		    <script src="../js/jquery-ui.min.js"></script>
 		    <script src="../js/bootstrap.min.js"></script>
 		    <script src="../js/bootstrap-datepicker.min.js"></script>
+		    <script src="../js/admStyles.js"></script>
 		</body>
 	</html>
 
